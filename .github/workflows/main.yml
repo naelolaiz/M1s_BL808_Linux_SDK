@@ -1,5 +1,4 @@
-name: Create and publish a Docker image
-
+name: Build and publishing M1's BL808 firmware
 on:
   workflow_dispatch:
   push:
@@ -15,5 +14,5 @@ jobs:
       - run: ./build.sh all
       - uses: actions/upload-artifact@v3
         with:
-          name: built_firmware
+          name: built_firmware_${{ github.sha }}
           path: out/
